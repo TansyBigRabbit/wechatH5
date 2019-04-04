@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.8.2.min.js"></script>
+</head>
+<body>
+
+<input type="text" style="display:none" id="code" value="">
+<input type="text" style="display:none" id="openid" value="">
+<input type="text" style="display:none" id="statusCode" value="">
+<input type="text" style="display:none" id="txt1" value="">
+
+</body>
+
+<script>
+//alert("code= " + getQueryString("code"));
+var code = getQueryString("code");
+var openid = null;
+var statusCode = 0;
+var data = null;
+document.getElementById("code").value=code;
+
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://design.youzidata.com/yjmaxdt/api/Get_wx_openid.php?code=" + code,
+    "method": "GET",
+    "headers": {
+        "Cache-Control": "no-cache"
+        // "Postman-Token": "7fd86bcc-a151-41f4-8005-ac4a0b03abfe"
+    }
+}
+
+
+
+$.ajax(settings).done(function (response) {
+	if(response.openid!=undefined){
+		openid = eval('response.'+"openid");
+		localStorage.setItem("openid",openid);
+		//跳转
+		 location.replace("http://design.youzidata.com/yjmaxdt/html/main.html?openid="+openid);
+		 
+		
+	}else{
+		console.log("openid获取失败，取本地存储的openid")
+		openid = localStorage.getItem("openid");
+		//跳转
+		 location.replace("http://design.youzidata.com/yjmaxdt/html/main.html?openid="+openid);
+		 
+	}
+    // console.log(response);
+    // alert(response);
+    // alert(JSON.stringify(response, null, 4));
+    // alert(getJson("data",response));
+    // openid = eval('response.'+ "openid");
+    // alert(response.data.openid);
+
+    // statusCode = eval('response.'+ "statusCode");
+    // document.getElementById("statusCode").value=statusCode;
+
+
+    // data = eval('response.'+ "data");
+
+    // if(statusCode != 1000){
+    //     alert(statusCode);
+    // }else{
+      /*   openid = eval('response.'+"openid");
+        document.getElementById("openid").value=openid; */
+        // alert(openid);
+    // }
+
+
+    // alert(JSON.stringify(getJson("openid",eval('response.'+ "data")), null, 4));
+});
+
+// alert(openid);//测试，正式环境要注释
+
+
+function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]); return null;
+}
+
+</script>
+</html>

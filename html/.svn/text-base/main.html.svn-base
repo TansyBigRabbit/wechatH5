@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>主角测试</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/fullpage.css">
+	<link rel="stylesheet" type="text/css" href="../css/animation.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+</head>
+<body class="background_body">
+<div class="containBox no-scrollbar">
+<div class="fr">
+<!-- <embed src="../music/CheeryMonday.mp3" hidden="true" autostart="true" loop="true"> -->
+  <audio id="myaudio" autoplay="autoplay" controls="controls" style="display: none" loop="loop" preload="auto"
+              src="../music/CheeryMonday.mp3">
+          你的浏览器版本太低，不支持audio标签
+  </audio> 
+<img class="music_logo fr" id="music_img" src="../img/music_on.png">
+</div>
+<div id="ido" style="display: none">
+    <!-- 首页 -->
+    <div class="section section1 active">
+        <div class="img_container middle"> 
+            <img class="img" src="../img/section1-1.png">
+            <img id="section1-2" class="img" src="../img/section1-2.png">
+        </div> 
+        <div class="middle firstPage_btn" >
+         <button class="btn begin_btn">开&nbsp;始&nbsp;测&nbsp;试</button>   
+        </div>
+    </div>
+    <!-- 性别选择 -->
+    <div class="section section2 ">
+        <div class="content_bg">
+        <div class="middle">
+            <p>你是男生还是女生？</p>
+        </div> 
+        <div class="middle margin_t_17">
+            <img class="img_2 box_shadow_img" onclick="saveGender(1)" src="../img/boy.png">&nbsp;
+            <img class="img_2 box_shadow_img" onclick="saveGender(2)" src="../img/girl.png">
+        </div>
+        </div> 
+    </div>
+     <!-- 问题1 -->
+    <div class="section section3 "> 
+        <div class="content_bg1"> 
+        	<div class="middle">
+            <p>你觉得自己有拖延症吗？</p>
+        </div> 
+        <div class="middle margin_t_11">
+          <div onclick="addScore(2)">A.我从不拖延</div>
+          <div onclick="addScore(3)">B.偶尔拖延而已</div>
+          <div onclick="addScore(4)">C.有拖延症</div>
+          <div onclick="addScore(5)">D.可以说是拖延症晚期了</div>
+        </div>
+        </div> 
+    </div>
+      <!-- 问题2 -->
+    <div class="section section4 "> 
+        <div class="content_bg2"> 
+            <div class="middle">
+            <p>你的朋友圈是什么状态？</p>
+        </div> 
+        <div class="middle margin_t_11">
+          <div onclick="addScore(2)" class="ft-14">A.喜欢在朋友圈分享自己的生活点滴</div>
+          <div onclick="addScore(3)">B.既不爱看也不爱发朋友圈</div>
+          <div onclick="addScore(4)" class="ft-14">C.有一群现实中并不联络的点赞之交</div>
+          <div onclick="addScore(5)">D.已关闭朋友圈</div>
+        </div>
+        </div> 
+    </div>
+      <!-- 问题3 -->
+    <div class="section section5 "> 
+        <div class="content_bg3 padding_t" > 
+            <div class="middle" onclick="addScore(2)">
+            <p>分手后，你会怎样处理<br>TA以前送的礼物？</p>
+        </div> 
+        <div class="middle margin_t_9">
+          <div onclick="addScore(2)">A.专门收在一个盒子里</div>
+          <div onclick="addScore(3)">B.送给小朋友</div>
+          <div onclick="addScore(4)">C.扔掉</div>
+          <div onclick="addScore(5)">D.早就忘记放哪里了</div>
+        </div>
+        </div> 
+    </div>
+    <!-- 问题4 -->
+    <div class="section section5 "> 
+        <div class="content_bg4"> 
+            <div class="middle" >
+            <p>你能看透身边人的心思吗？</p>
+        </div> 
+        <div class="middle margin_t_11">
+          <div onclick="addScore(2)">A.别人不说看不出来</div>
+          <div onclick="addScore(3)">B.可以从话中听出来</div>
+          <div onclick="addScore(4)">C.表情中能够感受到</div>
+          <div onclick="addScore(5)">D.只需要一个眼神</div>
+        </div>
+        </div> 
+    </div>
+    <!-- 问题5 -->
+    <div class="section section5 "> 
+        <div class="content_bg5 padding_t"> 
+            <div class="middle">
+            <p>情侣之间如果没有什么<br>感觉了，你会怎么办？</p>
+        </div> 
+        <div class="middle margin_t_9">
+          <div onclick="addScore(2)">A.离开</div>
+          <div onclick="addScore(3)">B.继续维持着</div>
+          <div onclick="addScore(4)">C.迷茫</div>
+          <div onclick="addScore(5)">D.重新寻找属于自己的爱情</div>
+        </div>
+        </div> 
+    </div>
+    <!-- 问题6 -->
+    <div class="section section5 "> 
+        <div class="content_bg6"> 
+            <div class="middle">
+            <p>你不喜欢和哪种人做朋友？</p>
+        </div> 
+        <div class="middle margin_t_11">
+          <div onclick="addScore(2)">A.邋遢的人</div>
+          <div onclick="addScore(3)">B.不太聪明的人</div>
+          <div onclick="addScore(4)">C.心思很重的人</div>
+          <div onclick="addScore(5)">D.懒散懈怠的人</div>
+        </div>
+        </div> 
+    </div>
+    <!-- 问题7 -->
+    <div class="section section5 "> 
+        <div class="content_bg7"> 
+            <div class="middle">
+            <p>你对自己的哪里不满意？</p>
+        </div> 
+        <div class="middle margin_t_11">
+          <div onclick="addScore(2,true)">A.外貌</div>
+          <div onclick="addScore(3,true)">B.身高</div>
+          <div onclick="addScore(4,true)">C.性别</div>
+          <div onclick="addScore(5,true)">D.我觉得自己简直完美</div>
+        </div>
+        </div> 
+    </div>
+</div>
+<div id="share" style="display: none">
+<div  class="share"> 
+  <img class="img_answer" src="../img/share/201.png">
+  <img class="img_code" src="../img/share/code_img.png"> 
+  <!-- <img class="img_shadow" src="../img/share/shadow_share.png"> -->
+</div>
+</div>
+<div id="shareToFriend" class="shareToFriend middle" style="display: none">
+ <div class="share-img">
+ </div>
+</div>
+</div>
+<!--    var myScroll;
+    function loaded() {
+    myScroll = new iScroll('wrapper');
+} 
+document.addEventListener('DOMContentLoaded', loaded, false);
+window.onload = function() { 
+    setTimeout(function(){ new iScroll(document.getElementById('scroller')) }, 100) 
+}; -->
+</body>
+  <script type="text/javascript" src="../js/system/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="../js/system/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/system/fullpage.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <script src="http://res.wx.qq.com/open/js/iscroll.js"></script> 
+	<script type="text/javascript" src="../js/main.js"></script>
+  <script type="text/javascript">
+
+  </script>
+</html>
